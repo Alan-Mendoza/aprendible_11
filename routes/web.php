@@ -1,11 +1,20 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+$posts = [
+    ['title' => 'First Post'],
+    ['title' => 'Second Post'],
+    ['title' => 'Third Post'],
+    ['title' => 'Fourth Post'],
+];
+
 Route::view('/', 'welcome')->name('welcome');
 Route::view('contacto', 'contact')->name('contact');
-Route::view('blog', 'blog')->name('blog');
+// Route::get('blog', PostController::class)->name('blog'); // Ruta de controlador invocable
+Route::get('blog', [PostController::class, 'index'])->name('blog'); // Ruta de controlador tradicional
 Route::view('nosotros', 'about')->name('about');
 
 Route::get('/dashboard', function () {
