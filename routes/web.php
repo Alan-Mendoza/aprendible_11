@@ -14,7 +14,9 @@ $posts = [
 Route::view('/', 'welcome')->name('welcome');
 Route::view('contacto', 'contact')->name('contact');
 // Route::get('blog', PostController::class)->name('blog'); // Ruta de controlador invocable
-Route::get('blog', [PostController::class, 'index'])->name('blog'); // Ruta de controlador tradicional
+Route::get('blog', [PostController::class, 'index'])->name('posts.index'); // Ruta de controlador tradicional
+Route::get('blog/{post}', [PostController::class, 'show'])->name('posts.show'); // Ruta de controlador tradicional
+
 Route::view('nosotros', 'about')->name('about');
 
 Route::get('/dashboard', function () {

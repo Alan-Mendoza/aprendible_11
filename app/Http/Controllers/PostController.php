@@ -42,6 +42,16 @@ class PostController extends Controller
         // Ahora con Eloquent ORM
         $posts = Post::get();
 
-        return view('blog', ['posts' => $posts]);
+        return view('posts.index', ['posts' => $posts]);
+    }
+
+    public function show(Post $post)
+    {
+
+        return view('posts.show')->with([
+            'post' => $post
+        ]);
+        // return view('post', ['post' => $post]);
+        // return Post::findOrFail($post);
     }
 }
