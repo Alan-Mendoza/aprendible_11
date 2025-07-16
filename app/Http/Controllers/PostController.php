@@ -45,6 +45,11 @@ class PostController extends Controller
         return view('posts.index', ['posts' => $posts]);
     }
 
+    public function create()
+    {
+        return view('posts.create');
+    }
+
     public function show(Post $post)
     {
 
@@ -53,5 +58,17 @@ class PostController extends Controller
         ]);
         // return view('post', ['post' => $post]);
         // return Post::findOrFail($post);
+    }
+
+    public function store(Request $request)
+    {
+        $post = new Post();
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        session()->flash('status', 'Post created successfully!');
+
+        return to_route('posts.index');
     }
 }

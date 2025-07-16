@@ -10,6 +10,11 @@
 <body>
     {{-- @include('partials.navigation') --}}
     <x-partials.navigation />
+    @session('status')
+        {{ $value }}
+    @endsession
+    <br>
+    <a href="{{ route('posts.create') }}">Create New Post</a>
     @isset($sum)
         <p>{{ $sum }}</p>
     @endisset
