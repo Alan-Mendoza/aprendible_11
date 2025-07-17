@@ -17,7 +17,7 @@
         {{ $value }}
     @endsession
     <br>
-    <a href="{{ route('posts.create') }}">Create New Post</a>
+    {{-- <a href="{{ route('posts.create') }}">Create New Post</a> --}}
     @isset($sum)
         <p>{{ $sum }}</p>
     @endisset
