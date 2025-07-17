@@ -52,7 +52,6 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-
         return view('posts.show')->with([
             'post' => $post
         ]);
@@ -62,6 +61,11 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => ['required', 'string', 'min:4'],
+            'body' => ['required', 'string'],
+        ]);
+
         $post = new Post();
         $post->title = $request->input('title');
         $post->body = $request->input('body');
