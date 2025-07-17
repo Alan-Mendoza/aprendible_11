@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
     // public function __invoke() // Controlador eficiente si es que solo tienes un solo método
     //     // Si tienes más de un método, es mejor usar un controlador tradicional
     //     // y definir los métodos como index, show, create, store, edit, update, destroy
