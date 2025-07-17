@@ -47,7 +47,9 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create')->with([
+            'post' => new Post // Para crear un nuevo post, pasamos una instancia vacía
+        ]);
     }
 
     public function show(Post $post)
