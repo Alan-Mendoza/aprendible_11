@@ -18,6 +18,8 @@ Route::get('blog', [PostController::class, 'index'])->name('posts.index'); // Ru
 Route::get('blog/create', [PostController::class, 'create'])->name('posts.create'); // Ruta de controlador tradicional
 Route::post('blog', [PostController::class, 'store'])->name('posts.store'); // Ruta de controlador tradicional
 Route::get('blog/{post}', [PostController::class, 'show'])->name('posts.show'); // Ruta de controlador tradicional
+Route::get('blog/{post}/edit', [PostController::class, 'edit'])->name('posts.edit'); // Ruta de controlador tradicional
+Route::match(['put', 'patch'], 'blog/{post}', [PostController::class, 'update'])->name('posts.update'); // Ruta de controlador tradicional
 
 Route::view('nosotros', 'about')->name('about');
 
