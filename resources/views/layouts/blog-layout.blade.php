@@ -12,7 +12,8 @@
 </head>
 <body>
     {{-- @include('partials.navigation') --}}
-    <x-partials.navigation />
+    {{-- <x-partials.navigation /> --}}
+    @include('layouts.blog-navigation')
     @session('status')
         <div class="bg-green-600 p-4 text-xl text-green-50 dark:bg-green-800">{{ $value }}</div>
     @endsession
