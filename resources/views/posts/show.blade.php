@@ -3,5 +3,5 @@
 
     <h1>{{ $post->title }}</h1>
     <p>{{ $post->body }}</p>
-    <a href="{{ route('posts.index') }}">Back</a>
+    <a href="{{ route('posts.index') }}">{{ __('Back') }}</a>
 </x-layout>
